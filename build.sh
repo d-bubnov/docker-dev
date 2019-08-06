@@ -14,15 +14,18 @@ buildAngular() {
 ANGULAR_APP=web-app
 CURRENT_FOLDER=$(pwd)
 
-if [ "${SKIP_ANGULAR_APP_BUILD}" != "-n" ]; then
+if [ "${SKIP_ANGULAR_APP_BUILD}" != "-n" ]
+then
     cd ..
     buildAngular $ANGULAR_APP
     cd "$CURRENT_FOLDER"
+else
+    echo $'\n-----------------------------------------------'
+	echo $'---- Skip building of Angular application -----'
+	echo $'-----------------------------------------------\n'
 fi
 
 cd "$CURRENT_FOLDER"
-
-echo "$CURRENT_FOLDER"
 
 echo $'\n-----------------------------------------------'
 echo $'----------- Build docker containers -----------'

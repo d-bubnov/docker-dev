@@ -40,7 +40,12 @@ services:
       - 4000
     ports:
       - 4000:4000
-    command: node server.js
+    environment:
+      SERVER_PORT: 4000
+      DATABASE_HOST: mongo
+      DATABASE_PORT: 27017
+      DATABASE_NAME: ng8crud
+    command: node dist/server.js
     depends_on: [ mongo ]
 
 networks:
